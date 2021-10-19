@@ -1,0 +1,89 @@
+@startuml
+rectangle "jupyter notebook" {
+  [hypeauditor scraper] as hypeauditorscraper
+  [Unofficial TikTok API] as tiktokapi
+}
+
+
+cloud {
+  [hypeauditor.com] as hypeauditorcom
+}
+
+
+
+hypeauditorcom <.down.  hypeauditorscraper : http
+hypeauditorscraper -down-> Collection12
+
+
+cloud {
+  [tiktok.com] as tiktokcom
+}
+
+
+
+
+tiktokcom  <.down. tiktokapi : scrape
+tiktokapi -down-> Collection11
+
+
+
+title Project Components
+
+left to right direction
+'top to bottom direction
+
+rectangle "MongoDB Service" {
+  database "Database 'tiktok'" as Database1 {
+    folder "Collection 'trending'" as Collection11 {
+      file "{\n _id:"ObjectId" \n id: "7013391471634058501",\n desc: Autsch #fypシ \n video:"Object" \n author:"Object" \n music:"Object" \n stats:"Object" \n textExtra:"Object" \n scrapeDate:"2021-10-17" \n }" as Document121
+      file "{\n _id:"ObjectId" \n id: "7018567872414928133",\n desc: Das Lied ist einfach... \n video:"Object" \n author:"Object" \n music:"Object" \n stats:"Object" \n textExtra:"Object" \n scrapeDate:"2021-10-17" \n }" as Document122
+
+
+    }
+    folder "Collection 'hypeauditor_toptiktoker'" as Collection12 {
+        file "{\n _id:"ObjectId" \n basic: "Object",\n      social_id: social_id \n      username:"maytree_music" \n      avatar_url:"https://p16-va-.." \n metrics:"Object" \n      subscribers_count:"Object" \n features:"Object"    \n country:"kr" \n }" as Document112
+    }
+  }
+
+
+
+}
+
+skinparam default {
+  FontName           Courier
+  FontSize           22
+  FontColor          Red
+}
+
+skinparam title {
+  FontName           Arial
+  FontSize           30
+  FontStyle          bold
+  FontColor          Blue
+}
+
+skinparam rectangle {
+  FontSize           24
+  FontStyle          bold
+  FontColor          #ff0000
+}
+
+skinparam database {
+  FontSize           22
+  FontStyle          bold
+  FontColor          #009900
+}
+
+skinparam folder {
+  FontSize           18
+  FontColor          #000000
+  BackgroundColor    #e9e9e9
+}
+
+skinparam file {
+  FontName           Courier New
+  FontSize           14
+  FontColor          #000000
+  BackgroundColor    #dcffb1
+}
+@enduml
